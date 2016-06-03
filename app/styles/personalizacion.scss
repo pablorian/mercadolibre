@@ -1,0 +1,48 @@
+/*form{
+	
+	fieldset{
+    	span,
+    	h5,
+    	select{
+    		display: inline-block
+    	}
+	}
+}*/
+
+legend{
+	display: none
+}
+
+body{
+	.container{
+		background-color: #FFF059
+	}
+}
+
+#mainImg{
+	text-align:center;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #FFF;
+	text-align:center;
+	width: 300px;
+	height: 300px;
+	padding: 0px;
+	img{
+		text-align: center;
+		vertical-align: middle;
+		max-height: 300px;
+		max-width: 300px;
+	}
+}
+
+#precio{
+	font-size: 2.8em;
+	color: #ff0000;
+	
+	sub{
+		vertical-align: text-top;
+		font-size: 0.5em;
+		line-height: 1em;
+	}
+}
