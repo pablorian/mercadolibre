@@ -1,0 +1,35 @@
+@import 'autocomplete-variables';
+
+.ch-autocomplete {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top: none;
+    box-sizing: border-box;
+}
+
+.ch-autocomplete-item {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.ch-autocomplete-item,
+.ch-autocomplete-highlighted {
+    margin: $autocomplete-item-margin;
+    padding: $autocomplete-item-padding;
+    cursor: $autocomplete-trigger-cursor;
+}
+
+.ch-autocomplete-list {
+    margin: $autocomplete-list-margin;
+    padding: $autocomplete-list-padding;
+    list-style: none;
+}
+
+.ch-autocomplete-highlighted {
+    background-color: $autocomplete-highlighted;
+    border-radius: $autocomplete-highlighted-border-radius;
+}
+
+.ch-autocomplete-loading {
+    background: url('#{$assets-path}/loading-small.gif') no-repeat right $autocomplete-loading-position-right center;
+}

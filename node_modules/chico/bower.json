@@ -1,0 +1,43 @@
+{
+  "name": "chico",
+  "description": "Chico UI is a free and open source collection of easy-to-use web components for developers and designers.",
+  "version": "2.0.4",
+  "keywords": [
+    "css",
+    "js",
+    "sass",
+    "front-end",
+    "web",
+    "framework"
+  ],
+  "homepage": "http://chico-ui.com.ar/",
+  "license": "MIT",
+  "main": [
+    "src/ui/styles/ui-theme.scss",
+    "src/mobile/styles/mobile-theme.scss",
+    "dist/ui/chico.css",
+    "dist/ui/chico.js",
+    "dist/mobile/chico.css",
+    "dist/mobile/chico.js",
+    "dist/assets/icons.eot",
+    "dist/assets/icons.svg",
+    "dist/assets/icons.ttf",
+    "dist/assets/icons.woff"
+  ],
+  "ignore": [
+    "/.*",
+    "doc",
+    "libs",
+    "routes",
+    "tests",
+    "vendor",
+    "views",
+    "app.js",
+    "Gruntfile.js",
+    "History.md",
+    "package.json"
+  ],
+  "dependencies": {
+    "tiny.js": "tiny#~0.1.6"
+  }
+}
