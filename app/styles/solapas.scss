@@ -1,19 +1,7 @@
-* {
- font-family: Arial, sans;
- margin: 0;
- padding: 0;
- box-sizing: border-box;
- -moz-box-sizing: border-box;
-}
-
-h1 {
- margin: 1em 0;
- text-align: center;
-}
-
 #container {
  margin: 0 auto;
- width: 100%; /* Ancho del contenedor */
+ width: 100%;
+ line-height:0px;
 }
 
 #container input {
@@ -22,13 +10,13 @@ h1 {
 }
 
 #container label {
- background: #f9f9f9; /* Fondo de las pestañas */
+ background: #f1f1f1;
  border-radius: .25em .25em 0 0;
- color: #888; /* Color del texto de las pestañas */
+ color: #888;
  cursor: pointer;
  display: block;
  float: left;
- font-size: 1em; /* Tamaño del texto de las pestañas */
+ font-size: 1em;
  height: 2.5em;
  line-height: 2.5em;
  margin-right: .25em;
@@ -37,31 +25,33 @@ h1 {
 }
 
 #container input:hover + label {
- background: #ddd; /* Fondo de las pestañas al pasar el cursor por encima */
- color: #666; /* Color del texto de las pestañas al pasar el cursor por encima */
+ background: #ddd;
+ color: #666;
 }
 
 #container input:checked + label {
- background: #f1f1f1; /* Fondo de las pestañas al presionar */
- color: #444; /* Color de las pestañas al presionar */
+ background: #fafafa;
+ color: #444;
  position: relative;
  z-index: 6;
 }
 
 #content {
- background: #f1f1f1; /* Fondo del contenido */
+ background: #fafafa;
  border-radius: 0 .25em .25em .25em;
- min-height: 20em; /* Alto del contenido */
+ min-height: 10em;
  position: relative;
  width: 100%;
  z-index: 5;
+ line-height:20px;
+ margin-bottom: 5px;
 }
 
-#content div {
- opacity: 0;
- padding: 1.5em;
- position: absolute;
- z-index: -100;
+#content > div{
+	opacity: 0;
+ 	margin: 10px 10px 10px 10px;
+ 	position: absolute;
+ 	z-index: -100;
 }
 
 .ch-box-icon{
@@ -78,4 +68,8 @@ h1 {
  	div{
  		opacity: 1;
  	}
+}
+
+#content-2 {
+	width:100%
 }

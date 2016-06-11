@@ -4,7 +4,8 @@ const gulpLoadPlugins = require('gulp-load-plugins');
 const browserSync = require('browser-sync');
 const del = require('del');
 const wiredep = require('wiredep').stream;
-
+const concat = require('gulp-concat');
+//const browserify = require('gulp-browserify');
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
@@ -20,6 +21,22 @@ gulp.task('styles', () => {
     .pipe($.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}))
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest('.tmp/styles'))
+    .pipe(reload({stream: true}));
+});
+
+//Browserify no funciono con chico
+/*gulp.task('js', () => {
+  return gulp.src('app/scripts/main.js')
+    .pipe(browserify({debug:true}))
+    .pipe(gulp.dest('.tmp/scripts'))
+    .pipe(reload({stream: true}));
+});*/
+
+gulp.task('scripts2', function() {
+    gulp.src('app/scripts/**/*.js')
+    .pipe(concat('/bower_components/tiny.js/dist/tiny.js'))
+    .pipe(concat('/bower_components/chico/dist/ui/chico.js'))
+    .pipe(gulp.dest('.tmp/scripts'))
     .pipe(reload({stream: true}));
 });
 
