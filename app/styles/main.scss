@@ -1,12 +1,9 @@
 $icon-font-path: '../fonts/';
 
-// bower:scss
-
-@import "/bower_components/chico/dist/ui/chico.css";
-
-// endbower
-
+//@import "/bower_components/chico/dist/ui/chico.scss";
+//@import "/bower_components/chico/src/ui/styles/ui-theme.scss";
 @import "mesh.scss";
+@import "chico.scss";
 @import "solapas.scss";
 @import "lineaSeparadora.scss";
 @import "carousel.scss";

@@ -10,7 +10,8 @@ const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
 gulp.task('styles', () => {
-  return gulp.src('app/styles/*.scss')
+  return gulp.src(['app/styles/*.scss'])
+    .pipe(concat('main.css'))
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
     .pipe($.sass.sync({
@@ -32,15 +33,15 @@ gulp.task('styles', () => {
     .pipe(reload({stream: true}));
 });*/
 
-gulp.task('scripts2', function() {
-    gulp.src('app/scripts/**/*.js')
-    .pipe(concat('/bower_components/tiny.js/dist/tiny.js'))
-    .pipe(concat('/bower_components/chico/dist/ui/chico.js'))
+gulp.task('scripts', function() {
+    gulp.src(['bower_components/tiny.js/dist/tiny.js', 'bower_components/chico/dist/ui/chico.js', 'app/scripts/**/*.js'])
+    .pipe(concat('main.js'))
+    .pipe($.plumber())
     .pipe(gulp.dest('.tmp/scripts'))
     .pipe(reload({stream: true}));
 });
 
-gulp.task('scripts', () => {
+gulp.task('scripts2', () => {
   return gulp.src('app/scripts/**/*.js')
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
@@ -75,25 +76,38 @@ gulp.task('lint:test', () => {
 });
 
 gulp.task('html', ['styles', 'scripts'], () => {
-  return gulp.src('app/*.html')
+  return gulp.src(['app/*.html','.tmp/**/main.css', '.tmp/**/main.js'])
     .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
     .pipe($.if('*.js', $.uglify()))
-    .pipe($.if('*.css', $.cssnano({safe: true, autoprefixer: false})))
+    .pipe($.if('*.css', $.cssnano({safe: true, autoprefixer: true})))
     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
     .pipe(gulp.dest('dist'));
 });
 
 gulp.task('images', () => {
-  return gulp.src('app/images/**/*')
-    .pipe($.cache($.imagemin({
+  return gulp.src(['app/static/*.png','app/static/*.jpg'])
+    /*.pipe($.cache($.imagemin({
       progressive: true,
       interlaced: true,
       // don't remove IDs from SVGs, they are often used
       // as hooks for embedding and styling
       svgoPlugins: [{cleanupIDs: false}]
-    })))
-    .pipe(gulp.dest('dist/images'));
+    })))*/
+    .pipe(gulp.dest('dist/static'));
 });
+
+gulp.task('assets', () => {
+  return gulp.src('app/assets/*')
+    /*.pipe($.cache($.imagemin({
+      progressive: true,
+      interlaced: true,
+      // don't remove IDs from SVGs, they are often used
+      // as hooks for embedding and styling
+      svgoPlugins: [{cleanupIDs: false}]
+    })))*/
+    .pipe(gulp.dest('dist/assets'));
+});
+
 
 gulp.task('fonts', () => {
   return gulp.src(require('main-bower-files')('**/*.{eot,svg,ttf,woff,woff2}', function (err) {})
@@ -182,8 +196,9 @@ gulp.task('wiredep', () => {
     .pipe(gulp.dest('app'));
 });
 
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
-  return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
+gulp.task('build', ['lint', 'html', 'assets', 'images', 'fonts', 'extras'], () => {
+  return gulp.src('dist/**/*')
+    .pipe($.size({title: 'build', gzip: true}));
 });
 
 gulp.task('default', ['clean'], () => {
