@@ -1,0 +1,95 @@
+$icon-font-path: '../fonts/';
+
+//@import "/bower_components/chico/dist/ui/chico.scss";
+//@import "/bower_components/chico/src/ui/styles/ui-theme.scss";
+@import "mesh.scss";
+@import "chico.scss";
+@import "solapas.scss";
+@import "lineaSeparadora.scss";
+@import "carousel.scss";
+
+legend{
+  display: none
+}
+
+body{
+  background-color: #fff;
+}
+
+header{
+  h1{
+    font-size: 35px;
+    margin: 0.5em 0;
+    line-height:40px;
+  }
+}
+
+.container{
+  background-color: #fff08f;
+}
+
+#mainImg{
+  display: table;
+  text-align:center;
+  vertical-align: middle;
+  //margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  background-color: #FFF;
+  position:relative;
+  padding-top:10%;
+  padding-bottom:10%;
+  
+}
+
+#precio{
+  font-size: 2.8em;
+  color: #ff0000;
+  
+  sub{
+    vertical-align: text-top;
+    font-size: 0.5em;
+    line-height: 1.5em;
+  }
+}
+
+form{
+  padding-left: 20px;
+}
+
+.from-group{
+  position:relative;
+  padding-top: 5px;
+  padding-bottom:5px;
+}
+
+@mixin cometarios{
+  position: relative;
+  color: #3a87ad;
+  background-color: #e4f2f9;
+  margin: 0px 20px 5px 0px;
+  padding: 5px 0px 5px 5px;
+}
+
+.comprador{
+  color: #3a87ad;
+}
+.comprador + div{
+  @include cometarios;
+  background-color: #e4f2f9;
+  color: #3a87ad;
+}
+
+.vendedor{
+  color: #468847;
+}
+.vendedor + div{
+  @include cometarios;
+  background-color: #e9f4e4;
+  color: #468847;
+}
+
+.ch-form-hint{
+  padding-top:5px;
+  font-size: 11px;
+}

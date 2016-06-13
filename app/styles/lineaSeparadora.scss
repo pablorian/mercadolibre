@@ -1,0 +1,23 @@
+hr.fancy-line { 
+    border: 0; 
+    height: 1px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+hr.fancy-line:before {
+    top: -0.5em;
+    height: 1em;
+}
+hr.fancy-line:after {
+    content:'';
+    height: 0.5em;
+    top: 1px;
+}
+
+hr.fancy-line, hr.fancy-line:before {
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 75%);
+}
+
+body, hr.fancy-line:after {
+    background: #f4f4f4;
+}

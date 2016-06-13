@@ -1,0 +1,43 @@
+/**
+ * Buttons
+ */
+@import 'buttons-variables';
+@import '../../shared/styles/buttons';
+
+/* Default h: ~30px*/
+.ch-btn,
+.ch-btn:focus {
+    line-height: $btn-line-height;
+    padding: $btn-padding;
+}
+
+/* Large h: ~39px */
+.ch-btn-large,
+.ch-btn-large:focus {
+    line-height: $btn-large-line-height;
+    padding: $btn-large-padding;
+}
+
+a.ch-btn-large,
+a.ch-btn-large:focus {
+    display: inline-block;
+}
+
+/* Small h: ~23px */
+.ch-btn-small,
+.ch-btn-small:focus {
+    font-size: $btn-small-text-size;
+    line-height: $btn-small-line-height;
+    padding: $btn-small-padding;
+}
+
+/* IE */
+.ie8 [class*="ch-btn"]:focus,
+.ie8 input[type="button"]:focus,
+.ie8 input[type="submit"]:focus,
+.ie8 input[type="reset"]:focus,
+.ie8 input[type="file"]:focus,
+.ie8 button:focus {
+    outline: thin dotted;
+    outline-offset: -2px;
+}
